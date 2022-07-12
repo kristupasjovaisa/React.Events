@@ -1,6 +1,14 @@
+import HeaderContainer from "./containers/Header/HeaderContainer";
+import ContentContainer from "./containers/Content/ContentContainer";
+import FooterContainer from "./containers/Footer/FooterContainer";
+
 function App() {
     return (
-        <div>Events Site</div>
+        <div>
+            <HeaderContainer/>
+            <ContentContainer/>
+            <FooterContainer/>
+        </div>
     );
 }
 
