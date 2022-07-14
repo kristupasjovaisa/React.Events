@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import logo from '../logo/logo.svg'
 
 const HeaderContainer = () =>
@@ -19,11 +19,11 @@ const HeaderContainer = () =>
                         <NavDropdown.Item href="#action5">LT</NavDropdown.Item>
                         <NavDropdown.Item href="#action6">EN</NavDropdown.Item>
                     </NavDropdown>
-                    <NavDropdown title="ADMIN PANEL"  id="navbarScrollingDropdown">
+                    <NavDropdown title="ADMIN PANEL" id="navbarScrollingDropdown">
                         <Nav.Link href="#action3">All users</Nav.Link>
                     </NavDropdown>
                 </Nav>
-                <Nav.Link href="#" ><i className='fas fa-user'></i> Login</Nav.Link>
+                <Nav.Link href="#"><i className='fas fa-user'></i> Login</Nav.Link>
             </Navbar.Collapse>
         </Container>
     </Navbar>
