@@ -26,7 +26,7 @@ const AddEventPage = () => {
             </Form.Group>
             <Form.Group className='mb-3' controlId='eventPrice'>
                 <Form.Label>Event price</Form.Label>
-                <Form.Control type='number' placeholder="Enter event price" />
+                <Form.Control type='text' placeholder="Enter event price" />
             </Form.Group>
             <Form.Group className='mb-3' controlId='eventStart'>
                 <Form.Label>Start event date/time</Form.Label>
