@@ -1,10 +1,11 @@
-import { Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import logo from '../logo/logo.svg'
+import {NavLink} from "react-router-dom";
 
 const HeaderContainer = () =>
     <Navbar bg="light" expand="lg">
         <Container fluid>
-            <Navbar.Brand href="#"> <img src={logo} className='App-logo'/> </Navbar.Brand>
+            <Navbar.Brand to="/" as={NavLink}> <img src={logo} className='App-logo'/> </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll"/>
             <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -12,18 +13,18 @@ const HeaderContainer = () =>
                     style={{maxHeight: '100px'}}
                     navbarScroll
                 >
-                    <Nav.Link href="#action2" className='px-3'> Events</Nav.Link>
-                    <Nav.Link href="#action3" className='px-3'> Favorite</Nav.Link>
-                    <Nav.Link href="#action4" className='px-3'> About</Nav.Link>
+                    <Nav.Link to="/events" as={NavLink} className='px-3'> Events</Nav.Link>
+                    <Nav.Link to="/favorite" as={NavLink} className='px-3'> Favorite</Nav.Link>
+                    <Nav.Link to="/about" as={NavLink} className='px-3'> About</Nav.Link>
                     <NavDropdown title="Languages" className='px-3' id="navbarScrollingDropdown">
                         <NavDropdown.Item href="#action5">LT</NavDropdown.Item>
                         <NavDropdown.Item href="#action6">EN</NavDropdown.Item>
                     </NavDropdown>
-                    <NavDropdown title="ADMIN PANEL"  id="navbarScrollingDropdown">
-                        <Nav.Link href="#action3">All users</Nav.Link>
+                    <NavDropdown title="ADMIN PANEL" id="navbarScrollingDropdown">
+                        <Nav.Link to="/users" as={NavLink}>All users</Nav.Link>
                     </NavDropdown>
                 </Nav>
-                <Nav.Link href="#" ><i className='fas fa-user'></i> Login</Nav.Link>
+                <Nav.Link to="/login" as={NavLink}><i className='fas fa-user'></i> Login</Nav.Link>
             </Navbar.Collapse>
         </Container>
     </Navbar>
