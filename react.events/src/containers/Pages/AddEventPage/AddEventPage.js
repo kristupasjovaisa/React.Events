@@ -44,13 +44,4 @@ const AddEventPage = () => {
     );
 };
 
-// private String name;
-// private String location;
-// private String category;
-// private BigDecimal price;
-// private String startEventDateTime;
-// private String endEventDateTime;
-// private String description;
-
-
 export default AddEventPage;
