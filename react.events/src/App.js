@@ -19,7 +19,6 @@ function App() {
                 <HeaderContainer/>
                 <Routes>
                     <Route path='/' element={<HomePage/>}/>
-                    <Route path='/events/create' element={<AddEventPage/>}/>
                     <Route path='/events' element={<Events/>}/>
                     <Route path='/favorite' element={<Favorite/>}/>
                     <Route path='/about' element={<About/>}/>
