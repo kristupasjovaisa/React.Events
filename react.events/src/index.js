@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
 import eventsReducer from './redux/Event/EventsSlice'
+import usersReducer from './redux/User/UserSlice'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = configureStore({
     reducer: {
         events: eventsReducer,
+        users: usersReducer,
     },
 });
 root.render(
