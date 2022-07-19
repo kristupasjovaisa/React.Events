@@ -1,5 +1,5 @@
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
-import logo from '../logo/logo.svg'
+import logo from '../Logo/logo.svg'
 import {NavLink} from "react-router-dom";
 
 const HeaderContainer = () =>

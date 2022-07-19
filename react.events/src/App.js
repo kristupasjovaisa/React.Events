@@ -4,7 +4,6 @@ import './App.css';
 import {BrowserRouter} from "react-router-dom";
 import {Routes, Route} from "react-router-dom";
 import HomePage from "./containers/Pages/HomePage/HomePage";
-import AddEventPage from "./containers/Pages/AddEventPage/AddEventPage";
 import Events from "./containers/Pages/EventsPage/Events";
 import Favorite from "./containers/Pages/FavoritePage/Favorite";
 import About from "./containers/Pages/AboutPage/About";
