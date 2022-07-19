@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Button, Card, Col, Container, Form, ListGroup, Modal, ModalBody, ModalHeader, Row} from "react-bootstrap";
+import {Button, Card, Form, ListGroup, Modal, ModalBody, ModalHeader} from "react-bootstrap";
 import {useSelector, useDispatch} from "react-redux";
 import {addEvent} from "../../../redux/Event/EventsSlice";
 
