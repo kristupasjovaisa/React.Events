@@ -66,7 +66,7 @@ const Register = () => {
                     {errors.password?.type === 'min' &&
                         <p className='text-bg-light'> Password length must be at least 6</p>}
                 </div>
-                <button className='button-30 mt-4' role='button'> Sign up</button>
+                <button className='button-30 mt-4 bolt' role='button'> Sign up</button>
             </form>
         </div>
     )
