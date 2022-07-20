@@ -12,10 +12,6 @@
     padding-top: 2%;
 }
 
-.addPopUp {
-
-}
-
 /* CSS Add new events button */
 .button-30 {
     align-items: center;
@@ -156,6 +152,14 @@ footer {
 }
 
 .registerForm {
+    width: 20%;
+    height: auto;
+    margin: 5rem auto;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.loginForm{
     width: 20%;
     height: auto;
     margin: 5rem auto;
