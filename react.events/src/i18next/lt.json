@@ -40,5 +40,17 @@
   "Password": "Slaptažodis",
   "Register": "Registracija",
   "Nickname is required": "Slapyvardis yra privalomas",
-  "Password is required": "Slaptažodis yra privalomas"
+  "Password is required": "Slaptažodis yra privalomas",
+  "Sign Up": "Registracija",
+  "Email": "Emailas",
+  "Email is required": "Emailas yra privalomas",
+  "Enter a valid email (ex. email@gmail.com)": "Iveskite naudojama emaila (pvz. emailas@gmail.com)",
+  "City": "Gyvenamoji vieta",
+  "City is required": "Gyvenamoji vieta yra privaloma",
+  "Phone number": "Telefono numeris",
+  "Phone number is required": "Telefono numeris yra privalomas",
+  "The phone number must be 9 digits long": "Telefono numeris privalomas ir turi būti iš 9 skaičių",
+  "Password is required": "Slaptažodis yra privalomas",
+  "Password length must be at least 6": "Slaptažodis yra privalomas ir turi būti, bent iš 6 simbolių",
+  "Sign Up ": "Registruotis"
 }

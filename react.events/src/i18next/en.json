@@ -41,5 +41,15 @@
   "Password": "Password",
   "Register": "Register",
   "Nickname is required": "Nickname is required",
-  "Password is required": "Password is required"
+  "Password is required": "Password is required",
+  "Sign Up": "Sign Up",
+  "Email": "Email",
+  "Email is required": "Email is required",
+  "Enter a valid email (ex. email@gmail.com)": "Enter a valid email (ex. email@gmail.com)",
+  "City is required": "City is required",
+  "Phone number": "Phone number",
+  "Phone number is required": "Phone number is required",
+  "The phone number must be 9 digits long": "The phone number required and must be 9 digits long",
+  "Password is required": "Password is required",
+  "Password length must be at least 6": "Password is required and length must be at least 6"
 }
