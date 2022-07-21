@@ -307,7 +307,6 @@ position: absolute;
     background-color: #d4d4d4;
 }
 .accountLine::before{
-    content: 'My Events';
     position: absolute;
     top: 50%;
     left: 50%;

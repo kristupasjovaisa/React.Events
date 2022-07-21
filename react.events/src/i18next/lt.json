@@ -52,5 +52,6 @@
   "The phone number must be 9 digits long": "Telefono numeris privalomas ir turi būti iš 9 skaičių",
   "Password is required": "Slaptažodis yra privalomas",
   "Password length must be at least 6": "Slaptažodis yra privalomas ir turi būti, bent iš 6 simbolių",
-  "Sign Up ": "Registruotis"
+  "Sign Up ": "Registruotis",
+  "My Events": "Mano Renginiai"
 }
