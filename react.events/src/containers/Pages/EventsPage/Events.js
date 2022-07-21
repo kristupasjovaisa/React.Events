@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import {Button, Card, Form, ListGroup, Modal, ModalBody, ModalHeader} from "react-bootstrap";
 import {useSelector, useDispatch} from "react-redux";
 import {addEvent} from "../../../redux/Event/EventsSlice";
+import {useTranslation} from "react-i18next";
 
 const Events = () => {
+    const {t}=useTranslation();
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -21,62 +23,55 @@ const Events = () => {
             <div className='text-center mt-3'>
                 <Modal show={show} onHide={handleClose}>
                     <ModalHeader closeButton>
-                        <strong>Created Your Best Event!</strong>
+                        <strong>{t('Create Your Best Event!')}</strong>
                     </ModalHeader>
                     <ModalBody>
                         <Form>
-                            <Form.Group className='mb-3' controlId='eventName'>
-                                <Form.Label>Event name</Form.Label>
-                                <Form.Control type='text' placeholder="Enter event name"
+                            <Form.Group className='mb-3'>
+                                <Form.Control type='text' placeholder={t('Event name')}
                                               onChange={(event) => {
                                                   setName(event.target.value)
                                               }}/>
                             </Form.Group>
-                            <Form.Group className='mb-3' controlId='eventLocation'>
-                                <Form.Label>Event location</Form.Label>
-                                <Form.Control type='text' placeholder="Enter event location"
+                            <Form.Group className='mb-3'>
+                                <Form.Control type='text' placeholder={t('Event location')}
                                               onChange={(event) => {
                                                   setLocation(event.target.value)
                                               }}/>
                             </Form.Group>
-                            <Form.Group className='mb-3' controlId='eventCategory'>
-                                <Form.Label>Select category</Form.Label>
+                            <Form.Group className='mb-3'>
                                 <Form.Select onChange={(event) => {
                                     setCategory(event.target.value)
                                 }}>
-                                    <option></option>
-                                    <option>Sports</option>
-                                    <option>Concerts</option>
-                                    <option>Festivals</option>
-                                    <option>Performing Arts</option>
-                                    <option>Conferences</option>
-                                    <option>Community</option>
+                                    <option>{t('Select category')}</option>
+                                    <option>{t('Sports')}</option>
+                                    <option>{t('Concerts')}</option>
+                                    <option>{t('Festivals')}</option>
+                                    <option>{t('Performing Arts')}</option>
+                                    <option>{t('Conferences')}</option>
+                                    <option>{t('Community')}</option>
                                 </Form.Select>
                             </Form.Group>
-                            <Form.Group className='mb-3' controlId='eventPrice'>
-                                <Form.Label>Event price</Form.Label>
-                                <Form.Control type='text' placeholder="Enter event price"
+                            <Form.Group className='mb-3'>
+                                <Form.Control type='text' placeholder={t('Event price')}
                                               onChange={(event) => {
                                                   setPrice(event.target.value)
                                               }}/>
                             </Form.Group>
-                            <Form.Group className='mb-3' controlId='eventStart'>
-                                <Form.Label>Start event date/time</Form.Label>
-                                <Form.Control type='text' placeholder="Enter start event date/time"
+                            <Form.Group className='mb-3'>
+                                <Form.Control type='text' placeholder={t('Start event date/time')}
                                               onChange={(event) => {
                                                   setStartEventDateTime(event.target.value)
                                               }}/>
                             </Form.Group>
-                            <Form.Group className='mb-3' controlId='eventEnd'>
-                                <Form.Label>End event date/time</Form.Label>
-                                <Form.Control type='text' placeholder="Enter end event date time"
+                            <Form.Group className='mb-3'>
+                                <Form.Control type='text' placeholder={t('End event date time')}
                                               onChange={(event) => {
                                                   setEndEventDateTime(event.target.value)
                                               }}/>
                             </Form.Group>
-                            <Form.Group className='mb-3' controlId='eventDescription'>
-                                <Form.Label>Event description</Form.Label>
-                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
+                            <Form.Group className='mb-3'>
+                                <textarea className="form-control" rows="3" placeholder={t('Description')}
                                           onChange={(event) => {
                                               setDescription(event.target.value)
                                           }}></textarea>
@@ -85,7 +80,7 @@ const Events = () => {
                     </ModalBody>
                     <Modal.Footer>
                         <Button variant="outline-secondary" onClick={handleClose}>
-                            Close
+                            {t('Close')}
                         </Button>
                         <Button onClick={() => {
                             dispatch(addEvent({
@@ -99,12 +94,12 @@ const Events = () => {
                                 description: description
                             }))
                         }} variant="outline-primary">
-                            Save
+                            {t('Save')}
                         </Button>
                     </Modal.Footer>
                 </Modal>
                 <button className='button-30' role='button' onClick={handleShow}>
-                    <Card.Title>Add new event</Card.Title>
+                    <Card.Title>{t('Add new event')}</Card.Title>
                 </button>
             </div>
             <div className='displayEvents mt-5 '>
@@ -112,19 +107,19 @@ const Events = () => {
                         return (
                             <Card style={{width: '18rem'}} className='cardDesign'>
                                 <Card.Body>
-                                    <Card.Title> Full info about Event</Card.Title>
+                                    <Card.Title>{t('Full info about Event')}</Card.Title>
                                 </Card.Body>
                                 <ListGroup className="list-group-flush">
-                                    <ListGroup.Item><Card.Title>Event:</Card.Title> {e.name}
+                                    <ListGroup.Item><Card.Title>{t('Event name')}:</Card.Title> {e.name}
                                     </ListGroup.Item>
-                                    <ListGroup.Item><Card.Title>Location:</Card.Title> {e.location}
+                                    <ListGroup.Item><Card.Title>{t('Location')}:</Card.Title> {e.location}
                                     </ListGroup.Item>
-                                    <ListGroup.Item><Card.Title>Category:</Card.Title> {e.category}
+                                    <ListGroup.Item><Card.Title>{t('Category')}:</Card.Title> {e.category}
                                     </ListGroup.Item>
-                                    <ListGroup.Item><Card.Title>Price: </Card.Title>{e.price} $</ListGroup.Item>
-                                    <ListGroup.Item><Card.Title>Start:</Card.Title> {e.startEventDateTime}
+                                    <ListGroup.Item><Card.Title>{t('Price')}: </Card.Title>{e.price} $</ListGroup.Item>
+                                    <ListGroup.Item><Card.Title>{t('Start')}:</Card.Title> {e.startEventDateTime}
                                     </ListGroup.Item>
-                                    <ListGroup.Item><Card.Title>End: </Card.Title>{e.endEventDateTime}
+                                    <ListGroup.Item><Card.Title>{t('End')}: </Card.Title>{e.endEventDateTime}
                                     </ListGroup.Item>
                                 </ListGroup>
                                 <Card.Body>
@@ -133,9 +128,9 @@ const Events = () => {
                                     </Card.Text>
                                 </Card.Body>
                                 <Card.Body>
-                                    <Button variant="outline-warning" size='sm'>Update</Button>{' '}
+                                    <Button variant="outline-warning" size='sm'>{t('Update')}</Button>{' '}
                                     <Button variant="outline-success" size='sm'>Favorite</Button>{' '}
-                                    <Button variant="outline-danger" size='sm'>Delete</Button>{' '}
+                                    <Button variant="outline-danger" size='sm'>{t('Delete')}</Button>{' '}
                                 </Card.Body>
                             </Card>
                         )
