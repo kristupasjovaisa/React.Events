@@ -274,7 +274,7 @@ footer {
 }
 
 .line::before {
-    content: 'Or';
+    content: '|';
     position: absolute;
     top: 50%;
     left: 50%;

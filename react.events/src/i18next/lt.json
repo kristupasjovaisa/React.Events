@@ -5,7 +5,7 @@
   "Languages": "Kalbos",
   "ADMIN PANEL": "ADMINISTRATORIAUS PANĖLĖ",
   "All users": "Visi nariai",
-  "Login": "Prisijungimas",
+  "Login": "Prisijungti",
   "My Profile": "Mano Profilis",
   "Logout": "Atsijungti",
   "Account": "Anketa",
@@ -34,5 +34,11 @@
   "Start": "Pradžia",
   "End": "Pabaiga",
   "Update": "Atnaujinti",
-  "Delete": "Ištrinti"
+  "Delete": "Ištrinti",
+  "Nickname": "Slapyvardis",
+  "Sign In": "Prisijungti",
+  "Password": "Slaptažodis",
+  "Register": "Registracija",
+  "Nickname is required": "Slapyvardis yra privalomas",
+  "Password is required": "Slaptažodis yra privalomas"
 }

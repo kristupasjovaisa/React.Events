@@ -35,5 +35,11 @@
   "Start": "Start",
   "End": "End",
   "Update": "Update",
-  "Delete": "Delete"
+  "Delete": "Delete",
+  "Nickname": "Nickname",
+  "Sign In": "Sign In",
+  "Password": "Password",
+  "Register": "Register",
+  "Nickname is required": "Nickname is required",
+  "Password is required": "Password is required"
 }
