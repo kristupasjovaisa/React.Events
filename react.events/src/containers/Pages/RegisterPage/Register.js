@@ -1,8 +1,24 @@
+import {Icon} from 'react-icons-kit'
+import {eyeOff} from 'react-icons-kit/feather/eyeOff'
+import {eye} from 'react-icons-kit/feather/eye'
 import {useForm} from 'react-hook-form'
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from 'yup'
+import {useState} from "react";
 
 const Register = () => {
+    const[type,setType] = useState('password');
+    const[icon,setIcon] = useState(eyeOff);
+
+    const handleToggle = () =>{
+        if(type==='password'){
+            setIcon(eye);
+            setType('text');
+        }else{
+            setIcon(eyeOff);
+            setType('password')
+        }
+    };
 
     const schema = yup.object().shape({
         nickname: yup.string().required(),
@@ -53,9 +69,10 @@ const Register = () => {
                     {errors.phoneNumber?.type === 'max' &&
                         <p className='text-bg-light'> The phone number must be 9 digits long </p>}
                 </div>
-                <div className='mt-2'>
-                    <input type='password' className='form-control font-weight-bolt'
-                           placeholder='Password'{...register('password')}/>
+                <div className='mt-2 input-field'>
+                    <input type={type} className='form-control font-weight-bolt'
+                           placeholder='Password' {...register('password')}/>
+                    <span onClick={handleToggle}><Icon icon={icon} size={15}/></span>
                     {errors.password?.type === 'required' &&
                         <p className='text-bg-light'> Password is required</p>}
                     {errors.password?.type === 'min' &&

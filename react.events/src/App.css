@@ -287,3 +287,14 @@ footer {
 .bolt{
     font-weight: bold
 }
+
+.input-field{
+position: relative;
+}
+
+.input-field span{
+position: absolute;
+    right: 7px;
+    top: 0px;
+    padding-top:3px;
+}
