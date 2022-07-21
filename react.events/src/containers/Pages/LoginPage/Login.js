@@ -1,9 +1,26 @@
+import {Icon} from 'react-icons-kit'
+import {eyeOff} from 'react-icons-kit/feather/eyeOff'
+import {eye} from 'react-icons-kit/feather/eye'
 import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
+import {useState} from "react";
 
 const Login = () => {
+
+    const[type,setType] = useState('password');
+    const[icon,setIcon] = useState(eyeOff);
+
+    const handleToggle = () =>{
+        if(type==='password'){
+            setIcon(eye);
+            setType('text');
+        }else{
+            setIcon(eyeOff);
+            setType('password')
+        }
+    };
 
     const schema = yup.object().shape({
         nickname: yup.string().required(),
@@ -33,9 +50,10 @@ const Login = () => {
                     {errors.nickname?.type === 'required' &&
                         <p className='text-bg-light'> Nickname is required</p>}
                 </div>
-                <div className='mt-3'>
-                    <input type='password' className='form-control font-weight-bolt'
+                <div className='mt-3 input-field'>
+                    <input type={type} className='form-control font-weight-bolt'
                            placeholder='Password'{...register('password')}/>
+                    <span onClick={handleToggle}><Icon icon={icon} size={15}/></span>
                     {errors.password?.type === 'required' &&
                         <p className='text-bg-light'> Password is required</p>}
                 </div>
