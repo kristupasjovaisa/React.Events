@@ -84,7 +84,7 @@ const Events = () => {
                         </Form>
                     </ModalBody>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button variant="outline-secondary" onClick={handleClose}>
                             Close
                         </Button>
                         <Button onClick={() => {
@@ -98,7 +98,7 @@ const Events = () => {
                                 endEventDateTime: endEventDateTime,
                                 description: description
                             }))
-                        }} variant="primary">
+                        }} variant="outline-primary">
                             Save
                         </Button>
                     </Modal.Footer>

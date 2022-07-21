@@ -10,6 +10,7 @@ import About from "./containers/Pages/AboutPage/About";
 import Login from "./containers/Pages/LoginPage/Login";
 import Register from "./containers/Pages/RegisterPage/Register";
 import Users from "./containers/Pages/UsersPage/Users";
+import UserAccount from "./containers/Pages/UserAccount/UserAccount";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/register' element={<Register/>}/>
                     <Route path='/users' element={<Users/>}/>
+                    <Route path='/account' element={<UserAccount/>}/>
                 </Routes>
                 <FooterContainer/>
             </div>
