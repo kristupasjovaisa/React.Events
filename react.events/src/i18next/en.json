@@ -52,5 +52,7 @@
   "The phone number must be 9 digits long": "The phone number required and must be 9 digits long",
   "Password is required": "Password is required",
   "Password length must be at least 6": "Password is required and length must be at least 6",
-  "My Events": "My Events"
+  "My Events": "My Events",
+  "Have events": "Have events",
+  "Full info about user": "Full info about user"
 }

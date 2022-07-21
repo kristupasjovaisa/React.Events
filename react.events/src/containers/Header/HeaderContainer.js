@@ -30,7 +30,7 @@ const HeaderContainer = () => {
                             <NavDropdown.Item className='text-bg-light' onClick={()=>handleChangeLng('en')}>EN</NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title={t('ADMIN PANEL')}>
-                            <Nav.Link to="/users" as={NavLink}>All users</Nav.Link>
+                            <Nav.Link to="/users" as={NavLink}>{t('All users')}</Nav.Link>
                         </NavDropdown>
                     </Nav>
                     <Nav style={{maxHeight: '100px'}} navbarScroll>

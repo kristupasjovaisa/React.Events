@@ -53,5 +53,7 @@
   "Password is required": "Slaptažodis yra privalomas",
   "Password length must be at least 6": "Slaptažodis yra privalomas ir turi būti, bent iš 6 simbolių",
   "Sign Up ": "Registruotis",
-  "My Events": "Mano Renginiai"
+  "My Events": "Mano Renginiai",
+  "Have events": "Renginių skaičius",
+  "Full info about user": "Informacija apie vartotoja"
 }
