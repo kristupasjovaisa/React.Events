@@ -1,5 +1,5 @@
 import { Card, ListGroup} from "react-bootstrap";
-import MyEvents from "../../../components/MyEvents/MyEvents";
+import EventList from "../../../components/EventList/EventList";
 
 const UserAccount = () => {
 
@@ -25,7 +25,7 @@ const UserAccount = () => {
                 </Card>
             </div>
             <div className='accountLine'></div>
-            <MyEvents/>
+            <EventList/>
         </>
     );
 

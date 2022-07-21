@@ -1,7 +1,7 @@
 import {Button, Card,ListGroup} from "react-bootstrap";
 import {useSelector} from "react-redux";
 
-const MyEvents = () =>{
+const EventList = () =>{
     const eventsList = useSelector((state) => state.events.value)
     return (
         <>
@@ -43,4 +43,4 @@ const MyEvents = () =>{
     );
 }
 
-export default MyEvents;
+export default EventList;
