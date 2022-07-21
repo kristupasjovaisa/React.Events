@@ -1,7 +1,9 @@
 import {Button, Card,ListGroup} from "react-bootstrap";
 import {useSelector} from "react-redux";
+import {useTranslation} from "react-i18next";
 
 const EventList = () =>{
+    const {t}=useTranslation();
     const eventsList = useSelector((state) => state.events.value)
     return (
         <>
@@ -10,19 +12,19 @@ const EventList = () =>{
                         return (
                             <Card style={{width: '18rem'}} className='cardDesign'>
                                 <Card.Body>
-                                    <Card.Title> Full info about Event</Card.Title>
+                                    <Card.Title> {t('Full info about Event')}</Card.Title>
                                 </Card.Body>
                                 <ListGroup className="list-group-flush">
-                                    <ListGroup.Item><Card.Title>Event:</Card.Title> {e.name}
+                                    <ListGroup.Item><Card.Title>{t('Event name')}:</Card.Title> {e.name}
                                     </ListGroup.Item>
-                                    <ListGroup.Item><Card.Title>Location:</Card.Title> {e.location}
+                                    <ListGroup.Item><Card.Title>{t('Location')}:</Card.Title> {e.location}
                                     </ListGroup.Item>
-                                    <ListGroup.Item><Card.Title>Category:</Card.Title> {e.category}
+                                    <ListGroup.Item><Card.Title>{t('Category')}:</Card.Title> {e.category}
                                     </ListGroup.Item>
-                                    <ListGroup.Item><Card.Title>Price: </Card.Title>{e.price} $</ListGroup.Item>
-                                    <ListGroup.Item><Card.Title>Start:</Card.Title> {e.startEventDateTime}
+                                    <ListGroup.Item><Card.Title>{t('Price')}: </Card.Title>{e.price} $</ListGroup.Item>
+                                    <ListGroup.Item><Card.Title>{t('Start')}:</Card.Title> {e.startEventDateTime}
                                     </ListGroup.Item>
-                                    <ListGroup.Item><Card.Title>End: </Card.Title>{e.endEventDateTime}
+                                    <ListGroup.Item><Card.Title>{t('End')}: </Card.Title>{e.endEventDateTime}
                                     </ListGroup.Item>
                                 </ListGroup>
                                 <Card.Body>
@@ -31,8 +33,8 @@ const EventList = () =>{
                                     </Card.Text>
                                 </Card.Body>
                                 <Card.Body>
-                                    <Button variant="outline-warning" size='sm'>Update</Button>{' '}
-                                    <Button variant="outline-danger" size='sm'>Delete</Button>{' '}
+                                    <Button variant="outline-warning" size='sm'>{t('Update')}</Button>{' '}
+                                    <Button variant="outline-danger" size='sm'>{t('Delete')}</Button>{' '}
                                 </Card.Body>
                             </Card>
                         )
