@@ -1,10 +1,13 @@
-import {Col, Container, Row} from "react-bootstrap";
+import {useTranslation} from "react-i18next";
+
 
 const FooterContainer = () => {
+
+    const {t}=useTranslation();
     return (
         <footer>
             <span>
-       Copyright &copy; Events
+       {t('Copyright')} &copy; {t('Events')}
     </span>
         </footer>
     )
