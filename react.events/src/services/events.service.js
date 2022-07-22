@@ -1,7 +1,7 @@
 import apiClient from "../api/apiClient";
 
 class EventsService {
-    getAllEvents = () => apiClient().get('events');
+    getAllEvents = () => apiClient().get();
 }
 
 export default new EventsService();

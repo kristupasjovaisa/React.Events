@@ -10,7 +10,7 @@ const eventsSlice = createSlice({
     name: 'events',
     initialState: {
         isLoading: false,
-        events: null,
+        events: [],
         errorMessage: null
     },
     extraReducers: (builder) => {
@@ -24,7 +24,6 @@ const eventsSlice = createSlice({
         })
         builder.addCase(fetchEvents.rejected, (state, action) => {
             state.isLoading = false
-            state.events = []
             state.errorMessage = action.payload
         })
     },

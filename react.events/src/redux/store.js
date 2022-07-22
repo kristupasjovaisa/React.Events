@@ -5,7 +5,7 @@ const configureStore = require('@reduxjs/toolkit').configureStore
 
 const store = configureStore({
     reducer: {
-        event: eventReducer,
+        eventsState: eventReducer,
     }
 });
 
