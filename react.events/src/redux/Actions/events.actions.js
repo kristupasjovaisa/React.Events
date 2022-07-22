@@ -1,30 +1,30 @@
-const EVENTS_FETCH = 'EVENTS_FETCH'
-const EVENTS_FETCH_SUCCESS = "EVENTS_FETCH_SUCCESS"
-const EVENTS_FETCH_ERROR = "EVENTS_FETCH_ERROR"
+const FETCH_EVENTS = 'FETCH_EVENTS'
+const FETCHED_EVENTS_SUCCESS = 'FETCHED_EVENTS_SUCCESS'
+const FETCHED_EVENTS_FAILURE = 'FETCHED_EVENTS_FAILURE'
 
 
-const eventsFetch = () => {
+const fetchEvents = () => {
     return {
-        type: EVENTS_FETCH
+        type: FETCH_EVENTS
     }
 };
 
-const eventsFetchSuccess = (events) => {
+const fetchedEventsSuccess = (events) => {
     return {
-        type: EVENTS_FETCH_SUCCESS,
+        type: FETCHED_EVENTS_SUCCESS,
         payload: events
     }
 };
 
-const eventsFetchError = (errorMessage) => {
+const fetchedEventsFailure = (errorMessage) => {
     return {
-        type: EVENTS_FETCH_ERROR,
+        type: FETCHED_EVENTS_FAILURE,
         payload: errorMessage
     }
 };
 
 export default {
-    eventsFetch,
-    eventsFetchSuccess,
-    eventsFetchError
+    fetchEvents,
+    fetchedEventsSuccess,
+    fetchedEventsFailure
 }
