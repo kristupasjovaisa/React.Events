@@ -7,6 +7,7 @@ import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
 import eventsReducer from './redux/Event/EventsSlice'
 import usersReducer from './redux/User/UserSlice'
+import './i18next/i18next'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -6,9 +6,11 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import {useState} from "react";
+import {useTranslation} from "react-i18next";
 
 const Login = () => {
 
+    const {t}=useTranslation();
     const[type,setType] = useState('password');
     const[icon,setIcon] = useState(eyeOff);
 
@@ -42,27 +44,27 @@ const Login = () => {
     }
     return (
         <div className='loginForm'>
-            <h4 className='text-center'>Sign In</h4>
+            <h4 className='text-center'>{t('Sign In')}</h4>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='mt-4'>
                     <input type='text' className='form-control font-weight-bolt'
-                           placeholder='Nickname' {...register('nickname')}/>
+                           placeholder={t('Nickname')} {...register('nickname')}/>
                     {errors.nickname?.type === 'required' &&
-                        <p className='text-bg-light'> Nickname is required</p>}
+                        <p className='text-bg-light'> {t('Nickname is required')}</p>}
                 </div>
                 <div className='mt-3 input-field'>
                     <input type={type} className='form-control font-weight-bolt'
-                           placeholder='Password'{...register('password')}/>
+                           placeholder={t('Password')}{...register('password')}/>
                     <span onClick={handleToggle}><Icon icon={icon} size={15}/></span>
                     {errors.password?.type === 'required' &&
-                        <p className='text-bg-light'> Password is required</p>}
+                        <p className='text-bg-light'> {t('Password is required')}</p>}
                 </div>
                 <div>
-                    <button className='button-30-1 mt-4' role='button'> Login </button>
+                    <button className='button-30-1 mt-4' role='button'> {t('Login')} </button>
                 </div>
              <div className='line'></div>
                 <div className='btn-center mt-2'>
-                    <button className='button-30-2 ' onClick={routeChange} role='button'> Register</button>
+                    <button className='button-30-2 ' onClick={routeChange} role='button'> {t('Register')}</button>
                 </div>
             </form>
         </div>
