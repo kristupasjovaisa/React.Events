@@ -1,6 +1,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import eventsService from "../../services/events.service";
 
+
 export const fetchEvents = createAsyncThunk('event/fetchEvents', () => {
     eventsService.getAllEvents().then((response) => response.data)
 });
@@ -29,4 +30,4 @@ const eventsSlice = createSlice({
     },
 });
 
-export default eventsSlice.reducer;
+export const eventReducer = eventsSlice.reducer;

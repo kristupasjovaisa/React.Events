@@ -10,12 +10,9 @@ import Login from "./containers/Pages/LoginPage/Login";
 import Register from "./containers/Pages/RegisterPage/Register";
 import Users from "./containers/Pages/UsersPage/Users";
 import UserAccount from "./containers/Pages/UserAccount/UserAccount";
-import {Provider} from "react-redux";
-import store from "./redux/store";
 
 function App() {
     return (
-        <Provider store={store}>
             <BrowserRouter>
                 <div className='mainApp'>
                     <HeaderContainer/>
@@ -31,7 +28,6 @@ function App() {
                     <FooterContainer/>
                 </div>
             </BrowserRouter>
-        </Provider>
     );
 }
 
