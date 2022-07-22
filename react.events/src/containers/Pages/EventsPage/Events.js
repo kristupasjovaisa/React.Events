@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {Button, Card, Form, ListGroup, Modal, ModalBody, ModalHeader} from "react-bootstrap";
 import {useSelector, useDispatch} from "react-redux";
-import {addEvent} from "../../../redux/Slices/eventsSlice";
 import {useTranslation} from "react-i18next";
 
 const Events = () => {
@@ -84,20 +83,20 @@ const Events = () => {
                         <Button variant="outline-secondary" onClick={handleClose}>
                             {t('Close')}
                         </Button>
-                        <Button onClick={() => {
-                            dispatch(addEvent({
-                                id: eventsList[eventsList.length - 1].id + 1,
-                                name: name,
-                                location: location,
-                                category: category,
-                                price: price,
-                                startEventDateTime: startEventDateTime,
-                                endEventDateTime: endEventDateTime,
-                                description: description
-                            }))
-                        }} variant="outline-primary">
+                        {/*<Button onClick={() => {*/}
+                        {/*    dispatch(addEvent({*/}
+                        {/*        id: eventsList[eventsList.length - 1].id + 1,*/}
+                        {/*        name: name,*/}
+                        {/*        location: location,*/}
+                        {/*        category: category,*/}
+                        {/*        price: price,*/}
+                        {/*        startEventDateTime: startEventDateTime,*/}
+                        {/*        endEventDateTime: endEventDateTime,*/}
+                        {/*        description: description*/}
+                        {/*    }))*/}
+                        {/*}} variant="outline-primary">*/}
                             {t('Save')}
-                        </Button>
+                        {/*</Button>*/}
                     </Modal.Footer>
                 </Modal>
                 <button className='button-30' role='button' onClick={handleShow}>
