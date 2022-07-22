@@ -3,7 +3,7 @@ import {Button, Card, Form, Modal, ModalBody, ModalHeader} from "react-bootstrap
 import {useTranslation} from "react-i18next";
 import EventList from "../../../components/EventList/EventList";
 
-const AppView = () => {
+const EventsView = () => {
     const store = require('/projects/React.Events/react.events/src/redux/store')
     const eventAction = require('/projects/React.Events/react.events/src/redux/Slices/eventsSlice')
     const {t} = useTranslation();
@@ -68,4 +68,4 @@ const AppView = () => {
     );
 };
 
-export default AppView;
+export default EventsView;

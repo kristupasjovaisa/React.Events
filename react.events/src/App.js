@@ -4,8 +4,7 @@ import './App.css';
 import {BrowserRouter} from "react-router-dom";
 import {Routes, Route} from "react-router-dom";
 import HomePage from "./containers/Pages/HomePage/HomePage";
-import AppView from "./containers/Pages/EventsPage/AppView";
-import Favorite from "./containers/Pages/FavoritePage/Favorite";
+import EventsView from "./containers/Pages/EventsPage/EventsView";
 import About from "./containers/Pages/AboutPage/About";
 import Login from "./containers/Pages/LoginPage/Login";
 import Register from "./containers/Pages/RegisterPage/Register";
@@ -19,8 +18,7 @@ function App() {
                 <HeaderContainer/>
                 <Routes>
                     <Route path='/' element={<HomePage/>}/>
-                    <Route path='/events' element={<AppView/>}/>
-                    <Route path='/favorite' element={<Favorite/>}/>
+                    <Route path='/events' element={<EventsView/>}/>
                     <Route path='/about' element={<About/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/register' element={<Register/>}/>
