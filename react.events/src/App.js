@@ -10,24 +10,28 @@ import Login from "./containers/Pages/LoginPage/Login";
 import Register from "./containers/Pages/RegisterPage/Register";
 import Users from "./containers/Pages/UsersPage/Users";
 import UserAccount from "./containers/Pages/UserAccount/UserAccount";
+import {Provider} from "react-redux";
+import store from "./redux/store";
 
 function App() {
     return (
-        <BrowserRouter>
-            <div className='mainApp'>
-                <HeaderContainer/>
-                <Routes>
-                    <Route path='/' element={<HomePage/>}/>
-                    <Route path='/events' element={<EventsView/>}/>
-                    <Route path='/about' element={<About/>}/>
-                    <Route path='/login' element={<Login/>}/>
-                    <Route path='/register' element={<Register/>}/>
-                    <Route path='/users' element={<Users/>}/>
-                    <Route path='/account' element={<UserAccount/>}/>
-                </Routes>
-                <FooterContainer/>
-            </div>
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <div className='mainApp'>
+                    <HeaderContainer/>
+                    <Routes>
+                        <Route path='/' element={<HomePage/>}/>
+                        <Route path='/events' element={<EventsView/>}/>
+                        <Route path='/about' element={<About/>}/>
+                        <Route path='/login' element={<Login/>}/>
+                        <Route path='/register' element={<Register/>}/>
+                        <Route path='/users' element={<Users/>}/>
+                        <Route path='/account' element={<UserAccount/>}/>
+                    </Routes>
+                    <FooterContainer/>
+                </div>
+            </BrowserRouter>
+        </Provider>
     );
 }
 

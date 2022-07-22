@@ -1,11 +1,11 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import eventsService from "../../services/events.service";
 
-const fetchEvents = createAsyncThunk('event/fetchEvents', () => {
+export const fetchEvents = createAsyncThunk('event/fetchEvents', () => {
     eventsService.getAllEvents().then((response) => response.data)
 });
 
-export const eventsSlice = createSlice({
+const eventsSlice = createSlice({
     name: 'events',
     initialState: {
         isLoading: false,
@@ -21,7 +21,7 @@ export const eventsSlice = createSlice({
             state.events = action.payload
             state.errorMessage = null
         })
-        builder.addCase(fetchEvents.rejected,(state,action)=>{
+        builder.addCase(fetchEvents.rejected, (state, action) => {
             state.isLoading = false
             state.events = []
             state.errorMessage = action.payload
