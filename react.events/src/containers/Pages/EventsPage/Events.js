@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import {Button, Card, Form, ListGroup, Modal, ModalBody, ModalHeader} from "react-bootstrap";
 import {useSelector, useDispatch} from "react-redux";
-import {addEvent} from "../../../redux/Event/EventsSlice";
+import {addEvent} from "../../../redux/Slices/eventsSlice";
 import {useTranslation} from "react-i18next";
 
 const Events = () => {
+    const store = require('/projects/React.Events/react.events/src/redux/store')
+    const eventAction = require('/projects/React.Events/react.events/src/redux/Slices/eventsSlice')
     const {t}=useTranslation();
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
