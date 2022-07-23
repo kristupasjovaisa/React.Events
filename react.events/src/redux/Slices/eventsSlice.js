@@ -1,10 +1,13 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import eventsService from "../../services/events.service";
+const axios =require('axios')
 
-
-export const fetchEvents = createAsyncThunk('event/fetchEvents', () => {
-    eventsService.getAllEvents().then((response) => response.data)
-});
+export const fetchEvents = createAsyncThunk(
+    'events/fetchEvents',
+    async () => {
+        const response = await axios.get('http://localhost:8080/api/events')
+        return response.data
+    }
+)
 
 const eventsSlice = createSlice({
     name: 'events',
@@ -19,7 +22,7 @@ const eventsSlice = createSlice({
         })
         builder.addCase(fetchEvents.fulfilled, (state, action) => {
             state.isLoading = false
-            state.events = action.payload
+            state.events = action.payload.events
             state.errorMessage = null
         })
         builder.addCase(fetchEvents.rejected, (state, action) => {
