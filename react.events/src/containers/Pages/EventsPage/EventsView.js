@@ -4,8 +4,8 @@ import {useTranslation} from "react-i18next";
 import EventList from "../../../components/EventList/EventList";
 
 const EventsView = () => {
-    const store = require('/projects/React.Events/react.events/src/redux/store')
-    const eventAction = require('/projects/React.Events/react.events/src/redux/Slices/eventsSlice')
+    const store = require('/projects/React.Events/react.events/src/store')
+    const eventAction = require('/projects/React.Events/react.events/src/slices/eventsSlice')
     const {t} = useTranslation();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
