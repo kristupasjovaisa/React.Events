@@ -28,21 +28,21 @@ export const logout = createAsyncThunk("auth/logout", async () => {
     await AuthService.logout();
 });
 
-
 const authSlice = createSlice({
     name: "auth",
-    initialState:{
+    initialState: {
         isLoading: false,
         user: JSON.parse(localStorage.getItem("user")),
         errorMessage: null
     },
     extraReducers: {
-        [register.fulfilled]: (state, action) => {
-            state.isLoading = false;
-        },
-        [register.rejected]: (state, action) => {
-            state.isLoading = false;
-        },
+        // TODO: Implemented Register!!!
+        // [register.fulfilled]: (state, action) => {
+        //     state.isLoading = false;
+        // },
+        // [register.rejected]: (state, action) => {
+        //     state.isLoading = false;
+        // },
         [login.pending]: (state, action) => {
             state.isLoading = true;
         },
@@ -53,6 +53,10 @@ const authSlice = createSlice({
         [login.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.user = action.payload;
+            state.errorMessage = null;
+        },
+        [logout.fulfilled]: (state, action) => {
+            state.user = null;
             state.errorMessage = null;
         },
     },
