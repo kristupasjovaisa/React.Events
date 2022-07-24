@@ -55,5 +55,11 @@
   "Sign Up ": "Registruotis",
   "My Events": "Mano Renginiai",
   "Have events": "Renginių skaičius",
-  "Full info about user": "Informacija apie vartotoja"
+  "Full info about user": "Informacija apie vartotoja",
+  "Event name is required": "Renginio pavadinimas yra privalomas",
+  "Event location is required": "Renginio vieta yra privaloma",
+ "Event price is required": "Renginio kaina yra privaloma",
+  "Event start date/time is required": "Renginio pražia data/laikas yra privaloma",
+  "Event end date/time is required": "Renginio pabaiga data/laikas yra privaloma",
+  "Event description is required": "Renginio aprašymas yra privalomas"
 }

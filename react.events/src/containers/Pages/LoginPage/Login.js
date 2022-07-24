@@ -43,6 +43,7 @@ const Login = () => {
 
     const onSubmit = (formValue) => {
         const {nickname, password} = formValue;
+        console.log("FORMVALUE",formValue)
 
         dispatch(login({nickname, password}))
             .unwrap()
@@ -68,7 +69,6 @@ const Login = () => {
                             type='text'
                             className='form-control font-weight-bolt'
                             placeholder={t('Nickname')} {...register('nickname')}
-                            name='nickname'
                         />
                         {errors.nickname?.type === 'required' &&
                             <p className='text-bg-light'> {t('Nickname is required')}</p>}
@@ -77,7 +77,6 @@ const Login = () => {
                         <input
                             type={type} className='form-control font-weight-bolt'
                             placeholder={t('Password')}{...register('password')}
-                            name='password'
                         />
                         <span onClick={handleToggle}><Icon icon={icon} size={15}/></span>
                         {errors.password?.type === 'required' &&
