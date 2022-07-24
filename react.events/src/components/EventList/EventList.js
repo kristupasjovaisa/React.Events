@@ -19,7 +19,7 @@ const EventList = () => {
                     return (
                         <span>Loading...</span>
                     )
-                } else if (eventsState.error === null) {
+                } else if (eventsState.error) {
                     return (
                         <span>Error: {eventsState.error}</span>
                     )
