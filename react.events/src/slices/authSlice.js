@@ -1,8 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import AuthService from "../services/auth.service";
 
-const user = JSON.parse(localStorage.getItem("user"));
-
 export const register = createAsyncThunk(
     "auth/register",
     async ({nickname, email, city, phoneNumber, password}, thunkAPI) => {
@@ -19,8 +17,7 @@ export const login = createAsyncThunk(
     "auth/login",
     async ({nickname, password}, thunkAPI) => {
         try {
-            const data = await AuthService.login(nickname, password);
-            return {user: data};
+            return await AuthService.login(nickname, password);
         } catch (error) {
             return thunkAPI.rejectWithValue();
         }
@@ -31,31 +28,32 @@ export const logout = createAsyncThunk("auth/logout", async () => {
     await AuthService.logout();
 });
 
-const initialState = user
-    ? {isLoggedIn: true, user}
-    : {isLoggedIn: false, user: null};
 
 const authSlice = createSlice({
     name: "auth",
-    initialState,
+    initialState:{
+        isLoading: false,
+        user: JSON.parse(localStorage.getItem("user")),
+        errorMessage: null
+    },
     extraReducers: {
         [register.fulfilled]: (state, action) => {
-            state.isLoggedIn = false;
+            state.isLoading = false;
         },
         [register.rejected]: (state, action) => {
-            state.isLoggedIn = false;
+            state.isLoading = false;
         },
-        [login.fulfilled]: (state, action) => {
-            state.isLoggedIn = true;
-            state.user = action.payload.user;
+        [login.pending]: (state, action) => {
+            state.isLoading = true;
         },
         [login.rejected]: (state, action) => {
-            state.isLoggedIn = false;
-            state.user = null;
+            state.isLoading = false;
+            state.errorMessage = action.payload;
         },
-        [logout.fulfilled]: (state, action) => {
-            state.isLoggedIn = false;
-            state.user = null;
+        [login.fulfilled]: (state, action) => {
+            state.isLoading = false;
+            state.user = action.payload;
+            state.errorMessage = null;
         },
     },
 });
