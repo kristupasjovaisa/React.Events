@@ -28,9 +28,6 @@ const EventList = () => {
                         eventsState.events.map((e) => {
                                 return (
                                     <Card style={{width: '18rem'}} className='cardDesign'>
-                                        <Card.Body>
-                                            <Card.Title> {t('Full info about Event')}</Card.Title>
-                                        </Card.Body>
                                         <ListGroup className="list-group-flush">
                                             <ListGroup.Item><Card.Title>{t('Event name')}:</Card.Title> {e.name}
                                             </ListGroup.Item>
