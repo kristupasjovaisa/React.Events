@@ -2,7 +2,7 @@ import {Button, Card, ListGroup} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {fetchEvents} from '/projects/React.Events/react.events/src/redux/Slices/eventsSlice'
+import {fetchEvents} from '/projects/React.Events/react.events/src/slices/eventsSlice'
 
 const EventList = () => {
     const {t} = useTranslation();

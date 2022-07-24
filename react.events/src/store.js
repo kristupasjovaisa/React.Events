@@ -1,4 +1,4 @@
-import {eventReducer} from '/projects/React.Events/react.events/src/redux/Slices/eventsSlice'
+import {eventReducer} from '/projects/React.Events/react.events/src/slices/eventsSlice'
 
 const configureStore = require('@reduxjs/toolkit').configureStore
 
