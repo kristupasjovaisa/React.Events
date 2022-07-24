@@ -14,12 +14,6 @@ const Login = () => {
 
     const authState = useSelector((state) => state.authState)
 
-    const [formData, setFormData] = useState({
-        nickname: '',
-        password: '',
-    })
-
-    const {nickname, password} = formData
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
@@ -46,13 +40,6 @@ const Login = () => {
         resolver: yupResolver(schema),
         mode: 'onTouched',
     });
-
-    const onChange = (e) => {
-        setFormData((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value,
-        }))
-    }
 
     const onSubmit = (formValue) => {
         const {nickname, password} = formValue;
@@ -82,7 +69,6 @@ const Login = () => {
                             className='form-control font-weight-bolt'
                             placeholder={t('Nickname')} {...register('nickname')}
                             name='nickname'
-                            onChange={onChange}
                         />
                         {errors.nickname?.type === 'required' &&
                             <p className='text-bg-light'> {t('Nickname is required')}</p>}
@@ -92,7 +78,6 @@ const Login = () => {
                             type={type} className='form-control font-weight-bolt'
                             placeholder={t('Password')}{...register('password')}
                             name='password'
-                            onChange={onChange}
                         />
                         <span onClick={handleToggle}><Icon icon={icon} size={15}/></span>
                         {errors.password?.type === 'required' &&
