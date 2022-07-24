@@ -3,25 +3,17 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {configureStore} from '@reduxjs/toolkit';
-import {Provider} from 'react-redux';
-import eventsReducer from './redux/Event/EventsSlice'
-import usersReducer from './redux/User/UserSlice'
 import './i18next/i18next'
+import store from "./redux/store";
+import {Provider} from "react-redux";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const store = configureStore({
-    reducer: {
-        events: eventsReducer,
-        users: usersReducer,
-    },
-});
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-        <App />
+            <App/>
         </Provider>
     </React.StrictMode>
 );

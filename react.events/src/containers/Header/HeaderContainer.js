@@ -23,7 +23,6 @@ const HeaderContainer = () => {
                         navbarScroll
                     >
                         <Nav.Link to="/events" as={NavLink} className='px-3'> {t('Events')}</Nav.Link>
-                        <Nav.Link to="/favorite" as={NavLink} className='px-3'> Favorite</Nav.Link>
                         <Nav.Link to="/about" as={NavLink} className='px-3'>{t('About')}</Nav.Link>
                         <NavDropdown title={t('Languages')} className='px-3'>
                             <NavDropdown.Item className='text-bg-light' onClick={()=>handleChangeLng('lt')}>LT</NavDropdown.Item>
