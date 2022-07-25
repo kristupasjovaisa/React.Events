@@ -13,10 +13,10 @@ const Details = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getEvent(params.id))
-    }, [])
+    }, [params])
 
     return (
-        <div className='displayEvents mt-5 '>
+        <div className='displayEvents mt-3 '>
             {(() => {
                 if (eventState.isLoading) {
                     return (
@@ -46,9 +46,9 @@ const Details = () => {
                                 </Card.Text>
                             </Card.Body>
                             <Card.Body>
-                                <button className='button-30-4'>{t('Update')}</button>
+                                <button className='button-30-3'>{t('Update')}</button>
                                 <div className='line'></div>
-                                <button className='button-30-3'
+                                <button className='button-30-4'
                                 >{t('Delete')}</button>
                             </Card.Body>
                         </Card>
