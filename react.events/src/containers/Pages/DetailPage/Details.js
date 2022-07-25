@@ -21,15 +21,14 @@ const Details = () => {
 
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        name: '',
-        location: '',
-        category: '',
-        price: '',
-        startEventDateTime: '',
-        endEventDateTime: '',
-        description: ''
+        name: null,
+        location: null,
+        category: null,
+        price: null,
+        startEventDateTime: null,
+        endEventDateTime: null,
+        description: null
     })
-    const {name, location, category, price, startEventDateTime, endEventDateTime, description} = formData
 
     const schema = yup.object().shape({
         name: yup.string().required(),
@@ -53,12 +52,26 @@ const Details = () => {
         }))
     }
 
-    const onSubmit = () => {
-        dispatch(updateEvent({name, location, category, price, startEventDateTime, endEventDateTime, description}))
-            .unwrap()
-            .then(() => {
-                navigate('/events')
-            })
+    const onSave = () => {
+        const eventId = params.id
+        const name = formData.name || eventState.event.name
+        const location = formData.location || eventState.event.location
+        const category = formData.category || eventState.event.category
+        const price = formData.price || eventState.event.price
+        const startEventDateTime = formData.startEventDateTime || eventState.event.startEventDateTime
+        const endEventDateTime = formData.endEventDateTime || eventState.event.endEventDateTime
+        const description = formData.description || eventState.event.description
+        dispatch(updateEvent({
+                eventId,
+                name,
+                location,
+                category,
+                price,
+                startEventDateTime,
+                endEventDateTime,
+                description
+            }
+        ))
     };
 
     return (
@@ -70,6 +83,9 @@ const Details = () => {
                     )
                 } else if (eventState.error) {
                     return <span>{eventState.error}</span>
+                } else if (eventState.shouldNavigateToEvents) {
+                    navigate('/events')
+                    return null;
                 } else if (eventState.event) {
                     return (
                         <Form>
@@ -105,7 +121,7 @@ const Details = () => {
                             <Form.Group className='mb-3'>
                                 <Form.Control type='text'
                                               placeholder={t('Event price')} {...register('price')}
-                                             value={eventState.event.price}
+                                              value={eventState.event.price}
                                               onChange={onChange}
                                 />
                                 {errors.price?.type === 'required' &&
@@ -138,40 +154,14 @@ const Details = () => {
                                 {errors.description?.type === 'required' &&
                                     <p className='text-bg-light'> {t('Event description is required')}</p>}
                             </Form.Group>
-                            <button className='button-30-1' onClick={onSubmit}>
+                            <button className='button-30-1' onClick={onSave}>
                                 {t('Save')}
                             </button>
                             <div className='line'></div>
-                            <button className='button-30-5' onClick={onSubmit}>
+                            <button className='button-30-5' onClick={onSave}>
                                 {t('Delete')}
                             </button>
                         </Form>
-                        // <Card style={{width: '18rem'}} className='cardDesign'>
-                        //     <ListGroup className="list-group-flush">
-                        //         <ListGroup.Item><Card.Title>{t('Event name')}:</Card.Title> {eventState.event.name}
-                        //         </ListGroup.Item>
-                        //         <ListGroup.Item><Card.Title>{t('Location')}:</Card.Title> {eventState.event.location}
-                        //         </ListGroup.Item>
-                        //         <ListGroup.Item><Card.Title>{t('Category')}:</Card.Title> {eventState.event.category}
-                        //         </ListGroup.Item>
-                        //         <ListGroup.Item><Card.Title>{t('Price')}: </Card.Title>{eventState.event.price} $</ListGroup.Item>
-                        //         <ListGroup.Item><Card.Title>{t('Start')}:</Card.Title> {eventState.event.startEventDateTime}
-                        //         </ListGroup.Item>
-                        //         <ListGroup.Item><Card.Title>{t('End')}: </Card.Title>{eventState.event.endEventDateTime}
-                        //         </ListGroup.Item>
-                        //     </ListGroup>
-                        //     <Card.Body>
-                        //         <Card.Text>
-                        //             {eventState.event.description}
-                        //         </Card.Text>
-                        //     </Card.Body>
-                        //     <Card.Body>
-                        //         <button className='button-30-3'>{t('Update')}</button>
-                        //         <div className='line'></div>
-                        //         <button className='button-30-4'
-                        //         >{t('Delete')}</button>
-                        //     </Card.Body>
-                        // </Card>
                     )
                 } else {
                     return null;

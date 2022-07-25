@@ -11,8 +11,8 @@ export const getEvent = createAsyncThunk(
 
 export const updateEvent = createAsyncThunk(
     "event/update",
-    async ({name, location, category, price, startEventDateTime, endEventDateTime, description}) => {
-        return await eventService.updateEvent(name, location, category, price, startEventDateTime, endEventDateTime, description);
+    async ({eventId,name, location, category, price, startEventDateTime, endEventDateTime, description}) => {
+        return await eventService.updateEvent(eventId,name, location, category, price, startEventDateTime, endEventDateTime, description);
     }
 );
 
@@ -28,7 +28,8 @@ const eventSlice = createSlice({
     initialState: {
         isLoading: false,
         event: null,
-        errorMessage: null
+        errorMessage: null,
+        shouldNavigateToEvents: false
     },
     extraReducers: {
         [getEvent.fulfilled]: (state, action) => {
@@ -50,17 +51,17 @@ const eventSlice = createSlice({
         [updateEvent.rejected]: (state, action) => {
             state.isLoading = false;
             state.errorMessage = action.payload;
-            state.isUpdate = false;
         },
         [updateEvent.fulfilled]: (state, action) => {
             state.isLoading = false;
-            state.isUpdate = true;
             state.errorMessage = null;
+            state.shouldNavigateToEvents = true;
         },
         [deleteEvent.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.event = null;
             state.errorMessage = null;
+            state.shouldNavigateToEvents = true;
         },
         [deleteEvent.pending]: (state, action) => {
             state.isLoading = true;

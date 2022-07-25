@@ -52,15 +52,12 @@ const AddEvent = () => {
 
     const onSubmit = () => {
         dispatch(addEvent({name, location, category, price, startEventDateTime, endEventDateTime, description}))
-            .unwrap()
-            .then(() => {
-                navigate('/events')
-            })
     };
 
     if (addEventState.isLoading) {
         return <span>Loading...</span>
     } else if (addEventState.isAdded) {
+        navigate('/events')
         return null;
     } else {
         return (

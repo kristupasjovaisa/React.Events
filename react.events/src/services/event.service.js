@@ -9,9 +9,10 @@ const getEvent = (id) => {
 
 };
 
-const updateEvent = (name, location, category, price, startEventDateTime, endEventDateTime, description) => {
+const updateEvent = (eventId, name, location, category, price, startEventDateTime, endEventDateTime, description) => {
     return axios
         .put(API_URL + "events", {
+            eventId,
             name,
             location,
             category,
