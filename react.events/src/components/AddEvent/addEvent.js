@@ -59,13 +59,10 @@ const AddEvent = () => {
     };
 
     if (addEventState.isLoading) {
-console.log("LOADING")
         return <span>Loading...</span>
     } else if (addEventState.isAdded) {
-console.log("ELSE IF")
         return null;
     } else {
-console.log("ELSE")
         return (
             <>
                 <Form className='registerForm'>

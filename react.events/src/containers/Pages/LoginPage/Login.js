@@ -43,7 +43,6 @@ const Login = () => {
 
     const onSubmit = (formValue) => {
         const {nickname, password} = formValue;
-        console.log("FORMVALUE",formValue)
 
         dispatch(login({nickname, password}))
             .unwrap()

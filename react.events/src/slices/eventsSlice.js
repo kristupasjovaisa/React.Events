@@ -9,25 +9,25 @@ export const fetchEvents = createAsyncThunk(
 )
 
 const eventsSlice = createSlice({
-    name: 'events',
+    name: 'eventsSlice',
     initialState: {
         isLoading: false,
         events: [],
         errorMessage: null
     },
-    extraReducers: (builder) => {
-        builder.addCase(fetchEvents.pending, (state) => {
+    extraReducers: {
+        [fetchEvents.pending]: (state, action) => {
             state.isLoading = true
-        })
-        builder.addCase(fetchEvents.fulfilled, (state, action) => {
+        },
+        [fetchEvents.fulfilled]: (state, action) => {
             state.isLoading = false
             state.events = action.payload.events
             state.errorMessage = null
-        })
-        builder.addCase(fetchEvents.rejected, (state, action) => {
+        },
+        [fetchEvents.rejected]: (state, action) => {
             state.isLoading = false
             state.errorMessage = action.payload
-        })
+        },
     },
 });
 
