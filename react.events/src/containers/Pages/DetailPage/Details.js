@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
+import {isAdmin} from "../../../helper/roles";
 
 
 const Details = () => {
@@ -78,6 +79,7 @@ const Details = () => {
         dispatch(deleteEvent(params.id))
     };
 
+
     return (
         <div className='registerForm mt-5 '>
             {(() => {
@@ -97,6 +99,7 @@ const Details = () => {
                                 <Form.Control type='text'
                                               placeholder={t('Event name')} {...register('name')}
                                               defaultValue={eventState.event.name}
+                                              disabled={!isAdmin()}
                                               onChange={onChange}
                                 />
                                 {errors.name?.type === 'required' &&
@@ -106,13 +109,14 @@ const Details = () => {
                                 <Form.Control type='text'
                                               placeholder={t('Event location')} {...register('location')}
                                               defaultValue={eventState.event.location}
+                                              disabled={!isAdmin()}
                                               onChange={onChange}
                                 />
                                 {errors.location?.type === 'required' &&
                                     <p className='text-bg-light'> {t('Event location is required')}</p>}
                             </Form.Group>
                             <Form.Group className='mb-3'>
-                                <Form.Select onChange={onChange} defaultValue={eventState.event.category}>
+                                <Form.Select onChange={onChange} defaultValue={eventState.event.category} disabled={!isAdmin()}>
                                     <option>{t('Select category')}</option>
                                     <option>{t('Sports')}</option>
                                     <option>{t('Concerts')}</option>
@@ -127,6 +131,7 @@ const Details = () => {
                                               placeholder={t('Event price')} {...register('price')}
                                               defaultValue={eventState.event.price}
                                               onChange={onChange}
+                                              disabled={!isAdmin()}
                                 />
                                 {errors.price?.type === 'required' &&
                                     <p className='text-bg-light'> {t('Event price is required')}</p>}
@@ -136,6 +141,7 @@ const Details = () => {
                                               placeholder={t('Start event date/time')} {...register('startEventDateTime')}
                                               defaultValue={eventState.event.startEventDateTime}
                                               onChange={onChange}
+                                              disabled={!isAdmin()}
                                 />
                                 {errors.startEventDateTime?.type === 'required' &&
                                     <p className='text-bg-light'> {t('Event start date/time is required')}</p>}
@@ -145,6 +151,7 @@ const Details = () => {
                                               placeholder={t('End event date time')} {...register('endEventDateTime')}
                                               defaultValue={eventState.event.endEventDateTime}
                                               onChange={onChange}
+                                              disabled={!isAdmin()}
                                 />
                                 {errors.endEventDateTime?.type === 'required' &&
                                     <p className='text-bg-light'> {t('Event end date/time is required')}</p>}
@@ -154,15 +161,17 @@ const Details = () => {
                                   rows="3"
                                   placeholder={t('Description')} {...register('description')}
                                   defaultValue={eventState.event.description}
-                                  onChange={onChange}></textarea>
+                                  onChange={onChange}
+                                  disabled={!isAdmin()}
+                        ></textarea>
                                 {errors.description?.type === 'required' &&
                                     <p className='text-bg-light'> {t('Event description is required')}</p>}
                             </Form.Group>
-                            <button className='button-30-1' onClick={onSave}>
+                            <button className='button-30-1' onClick={onSave} hidden={!isAdmin()}>
                                 {t('Save')}
                             </button>
-                            <div className='line'></div>
-                            <button className='button-30-5' onClick={onDelete}>
+                            <div className='line' hidden={!isAdmin()}></div>
+                            <button className='button-30-5' onClick={onDelete} hidden={!isAdmin()}>
                                 {t('Delete')}
                             </button>
                         </Form>

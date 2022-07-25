@@ -3,6 +3,7 @@ import {Card} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import EventList from "../../../components/EventList/EventList";
 import {useNavigate} from "react-router-dom";
+import {isAdmin} from "../../../helper/roles";
 
 const EventsView = () => {
 
@@ -19,7 +20,7 @@ const EventsView = () => {
     return (
         <>
             <div className='text-center mt-3'>
-                <button className='button-30' role='button' onClick={routeChange}>
+                <button className='button-30' role='button' onClick={routeChange} hidden={!isAdmin()}>
                     <Card.Title>{t('Add new event')}</Card.Title>
                 </button>
             </div>

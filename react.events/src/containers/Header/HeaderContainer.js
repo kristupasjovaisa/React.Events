@@ -4,6 +4,7 @@ import {NavLink, useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {logout} from "../../slices/authSlice";
 import {useDispatch} from "react-redux";
+import {isAdmin} from "../../helper/roles";
 
 const HeaderContainer = () => {
 
@@ -42,7 +43,7 @@ const HeaderContainer = () => {
                             <NavDropdown.Item className='text-bg-light'
                                               onClick={() => handleChangeLng('en')}>EN</NavDropdown.Item>
                         </NavDropdown>
-                        <NavDropdown title={t('ADMIN PANEL')}>
+                        <NavDropdown title={t('ADMIN PANEL')} hidden={!isAdmin()}>
                             <Nav.Link to="/users" as={NavLink}>{t('All users')}</Nav.Link>
                         </NavDropdown>
                     </Nav>
