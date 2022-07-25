@@ -3,12 +3,9 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/";
 
-
-
-const addEvent = (name,location,category,price,startEventDateTime,endEventDateTime,description) => {
+const addEvent = (name, location, category, price, startEventDateTime, endEventDateTime, description) => {
     return axios
         .post(API_URL + "events", {
-            headers: authHeaderService(),
             name,
             location,
             category,
@@ -16,7 +13,7 @@ const addEvent = (name,location,category,price,startEventDateTime,endEventDateTi
             startEventDateTime,
             endEventDateTime,
             description
-        })
+        }, {headers: authHeaderService()})
         .then((response) => response.data)
 };
 

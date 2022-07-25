@@ -9,8 +9,16 @@ import {useState} from "react";
 
 const AddEvent = () => {
 
-    const [showModal, setShowModal] = useState(true);
-
+    const [formData, setFormData] = useState({
+        name: '',
+        location: '',
+        category:'',
+        price:'',
+        startEventDateTime:'',
+        endEventDateTime:'',
+        description:''
+    })
+    const {name, location,category,price,startEventDateTime,endEventDateTime,description} = formData
     const {t} = useTranslation();
     const dispatch = useDispatch();
 
@@ -26,15 +34,19 @@ const AddEvent = () => {
         description: yup.string().required(),
     });
 
-    const {register, handleSubmit, formState: {errors}} = useForm({
+    const {register,formState: {errors}} = useForm({
         resolver: yupResolver(schema),
         mode: 'onTouched',
     });
 
-    const onSubmit = (formValue) => {
-        console.log("ADDD",formValue)
-        const {name, location, category, price, startEventDateTime, endEventDateTime, description} = formValue;
+    const onChange = (e) => {
+        setFormData((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }))
+    }
 
+    const onSubmit = () => {
         dispatch(addEvent({name, location, category, price, startEventDateTime, endEventDateTime, description}))
             .unwrap()
             .then(() => {
@@ -50,21 +62,25 @@ const AddEvent = () => {
                     <strong>{t('Create Your Best Event!')}</strong>
                 </ModalHeader>
                 <ModalBody>
-                    <Form onSubmit={handleSubmit(onSubmit)}>
+                    <Form>
                         <Form.Group className='mb-3'>
                             <Form.Control type='text'
-                                          placeholder={t('Event name')} {...register('name')}/>
+                                          placeholder={t('Event name')} {...register('name')}
+                                          onChange={onChange}
+                            />
                             {errors.name?.type === 'required' &&
                                 <p className='text-bg-light'> {t('Event name is required')}</p>}
                         </Form.Group>
                         <Form.Group className='mb-3'>
                             <Form.Control type='text'
-                                          placeholder={t('Event location')} {...register('location')}/>
+                                          placeholder={t('Event location')} {...register('location')}
+                                          onChange={onChange}
+                            />
                             {errors.location?.type === 'required' &&
                                 <p className='text-bg-light'> {t('Event location is required')}</p>}
                         </Form.Group>
                         <Form.Group className='mb-3'>
-                            <Form.Select>
+                            <Form.Select onChange={onChange}>
                                 <option>{t('Select category')}</option>
                                 <option>{t('Sports')}</option>
                                 <option>{t('Concerts')}</option>
@@ -76,26 +92,32 @@ const AddEvent = () => {
                         </Form.Group>
                         <Form.Group className='mb-3'>
                             <Form.Control type='text'
-                                          placeholder={t('Event price')} {...register('price')} />
+                                          placeholder={t('Event price')} {...register('price')}
+                                          onChange={onChange}
+                            />
                             {errors.price?.type === 'required' &&
                                 <p className='text-bg-light'> {t('Event price is required')}</p>}
                         </Form.Group>
                         <Form.Group className='mb-3'>
                             <Form.Control type='text'
-                                          placeholder={t('Start event date/time')} {...register('startEventDateTime')}/>
+                                          placeholder={t('Start event date/time')} {...register('startEventDateTime')}
+                                          onChange={onChange}
+                            />
                             {errors.startEventDateTime?.type === 'required' &&
                                 <p className='text-bg-light'> {t('Event start date/time is required')}</p>}
                         </Form.Group>
                         <Form.Group className='mb-3'>
                             <Form.Control type='text'
-                                          placeholder={t('End event date time')} {...register('endEventDateTime')}/>
+                                          placeholder={t('End event date time')} {...register('endEventDateTime')}
+                                          onChange={onChange}
+                            />
                             {errors.endEventDateTime?.type === 'required' &&
                                 <p className='text-bg-light'> {t('Event end date/time is required')}</p>}
                         </Form.Group>
                         <Form.Group className='mb-3'>
                         <textarea className="form-control"
                                   rows="3"
-                                  placeholder={t('Description')} {...register('description')}></textarea>
+                                  placeholder={t('Description')} {...register('description')} onChange={onChange}></textarea>
                             {errors.description?.type === 'required' &&
                                 <p className='text-bg-light'> {t('Event description is required')}</p>}
                         </Form.Group>
@@ -105,7 +127,7 @@ const AddEvent = () => {
                     <Button variant="outline-secondary">
                         {t('Close')}
                     </Button>
-                    <Button variant="outline-primary">
+                    <Button variant="outline-primary" onClick={onSubmit}>
                         {t('Save')}
                     </Button>
                 </Modal.Footer>
