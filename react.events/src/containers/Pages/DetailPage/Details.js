@@ -1,7 +1,7 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
-import {getEvent, updateEvent} from "../../../slices/eventSlice";
+import {deleteEvent, getEvent, updateEvent} from "../../../slices/eventSlice";
 import {Form} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import * as yup from "yup";
@@ -74,6 +74,10 @@ const Details = () => {
         ))
     };
 
+    const onDelete = () => {
+        dispatch(deleteEvent(params.id))
+    };
+
     return (
         <div className='registerForm mt-5 '>
             {(() => {
@@ -85,8 +89,6 @@ const Details = () => {
                     return <span>{eventState.error}</span>
                 } else if (eventState.shouldNavigateToEvents) {
                     navigate('/events')
-                    // eslint-disable-next-line no-restricted-globals
-                    location.reload()
                     return null;
                 } else if (eventState.event) {
                     return (
@@ -160,7 +162,7 @@ const Details = () => {
                                 {t('Save')}
                             </button>
                             <div className='line'></div>
-                            <button className='button-30-5' onClick={onSave}>
+                            <button className='button-30-5' onClick={onDelete}>
                                 {t('Delete')}
                             </button>
                         </Form>

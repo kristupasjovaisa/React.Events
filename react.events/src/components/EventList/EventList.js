@@ -10,6 +10,8 @@ const EventList = () => {
     const navigate = useNavigate()
     const routeChange = (button) => {
         navigate(button.target.value);
+        // eslint-disable-next-line no-restricted-globals
+        location.reload()
     }
 
     const {t} = useTranslation();

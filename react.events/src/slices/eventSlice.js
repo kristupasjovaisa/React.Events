@@ -18,8 +18,8 @@ export const updateEvent = createAsyncThunk(
 
 export const deleteEvent = createAsyncThunk(
     "event/delete",
-    async () => {
-        return await eventService.deleteEvent();
+    async (id) => {
+        return await eventService.deleteEvent(id);
     }
 );
 

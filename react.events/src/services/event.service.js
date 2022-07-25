@@ -6,7 +6,6 @@ const API_URL = "http://localhost:8080/api/";
 const getEvent = (id) => {
     return axios.get(API_URL + "events/" + id, {headers: authHeader()})
         .then((response) => response.data)
-
 };
 
 const updateEvent = (eventId, name, location, category, price, startEventDateTime, endEventDateTime, description) => {
@@ -24,9 +23,8 @@ const updateEvent = (eventId, name, location, category, price, startEventDateTim
         .then((response) => response.data)
 };
 
-const deleteEvent = () => {
-    return axios
-        .delete(API_URL + "events", {}, {headers: authHeader()})
+const deleteEvent = (id) => {
+    return axios.delete(API_URL + "events/" + id, {headers: authHeader()})
         .then((response) => response.data)
 };
 
