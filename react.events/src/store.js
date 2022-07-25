@@ -1,13 +1,14 @@
-import {eventReducer} from '/projects/React.Events/react.events/src/slices/eventsSlice'
+import {eventsReducer} from '/projects/React.Events/react.events/src/slices/eventsSlice'
 import {authReducer} from "./slices/authSlice";
-
+import {eventReducer} from "./slices/addEventSlice";
 
 const configureStore = require('@reduxjs/toolkit').configureStore
 
 const store = configureStore({
     reducer: {
-        eventsState: eventReducer,
-        authState: authReducer
+        eventsState: eventsReducer,
+        authState: authReducer,
+        addEventState: eventReducer
     },
     devTools: true
 });

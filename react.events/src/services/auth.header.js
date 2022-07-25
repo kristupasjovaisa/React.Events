@@ -1,4 +1,4 @@
-const authHeaderService = () => {
+const authHeader = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (user && user.jwtToken) {
@@ -7,4 +7,4 @@ const authHeaderService = () => {
         return {};
     }
 }
-export default authHeaderService;
+export default authHeader;

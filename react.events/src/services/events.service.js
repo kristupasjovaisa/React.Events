@@ -1,7 +1,15 @@
-import apiClient from "../api/apiClient";
+import axios from "axios";
+import authHeader from "./auth.header";
 
-class EventsService {
-    getAllEvents = () => apiClient().get();
-}
+const API_URL = "http://localhost:8080/api/";
 
-export default new EventsService();
+const getEvents = () => {
+    return axios.get(API_URL + "events", { headers: authHeader()})
+        .then((response) => response.data)
+};
+
+const eventsService = {
+    getEvents
+};
+
+export default eventsService;
