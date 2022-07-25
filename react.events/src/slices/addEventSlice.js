@@ -32,4 +32,4 @@ const addEventSlice = createSlice({
     },
 });
 
-export const eventReducer = addEventSlice.reducer;
+export const addEventReducer = addEventSlice.reducer;
