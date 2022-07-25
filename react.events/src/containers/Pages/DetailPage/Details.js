@@ -85,6 +85,8 @@ const Details = () => {
                     return <span>{eventState.error}</span>
                 } else if (eventState.shouldNavigateToEvents) {
                     navigate('/events')
+                    // eslint-disable-next-line no-restricted-globals
+                    location.reload()
                     return null;
                 } else if (eventState.event) {
                     return (
@@ -92,7 +94,7 @@ const Details = () => {
                             <Form.Group className='mb-3'>
                                 <Form.Control type='text'
                                               placeholder={t('Event name')} {...register('name')}
-                                              value={eventState.event.name}
+                                              defaultValue={eventState.event.name}
                                               onChange={onChange}
                                 />
                                 {errors.name?.type === 'required' &&
@@ -101,14 +103,14 @@ const Details = () => {
                             <Form.Group className='mb-3'>
                                 <Form.Control type='text'
                                               placeholder={t('Event location')} {...register('location')}
-                                              value={eventState.event.location}
+                                              defaultValue={eventState.event.location}
                                               onChange={onChange}
                                 />
                                 {errors.location?.type === 'required' &&
                                     <p className='text-bg-light'> {t('Event location is required')}</p>}
                             </Form.Group>
                             <Form.Group className='mb-3'>
-                                <Form.Select onChange={onChange} value={eventState.event.category}>
+                                <Form.Select onChange={onChange} defaultValue={eventState.event.category}>
                                     <option>{t('Select category')}</option>
                                     <option>{t('Sports')}</option>
                                     <option>{t('Concerts')}</option>
@@ -121,7 +123,7 @@ const Details = () => {
                             <Form.Group className='mb-3'>
                                 <Form.Control type='text'
                                               placeholder={t('Event price')} {...register('price')}
-                                              value={eventState.event.price}
+                                              defaultValue={eventState.event.price}
                                               onChange={onChange}
                                 />
                                 {errors.price?.type === 'required' &&
@@ -130,7 +132,7 @@ const Details = () => {
                             <Form.Group className='mb-3'>
                                 <Form.Control type='text'
                                               placeholder={t('Start event date/time')} {...register('startEventDateTime')}
-                                              value={eventState.event.startEventDateTime}
+                                              defaultValue={eventState.event.startEventDateTime}
                                               onChange={onChange}
                                 />
                                 {errors.startEventDateTime?.type === 'required' &&
@@ -139,7 +141,7 @@ const Details = () => {
                             <Form.Group className='mb-3'>
                                 <Form.Control type='text'
                                               placeholder={t('End event date time')} {...register('endEventDateTime')}
-                                              value={eventState.event.endEventDateTime}
+                                              defaultValue={eventState.event.endEventDateTime}
                                               onChange={onChange}
                                 />
                                 {errors.endEventDateTime?.type === 'required' &&
@@ -149,7 +151,7 @@ const Details = () => {
                         <textarea className="form-control"
                                   rows="3"
                                   placeholder={t('Description')} {...register('description')}
-                                  value={eventState.event.description}
+                                  defaultValue={eventState.event.description}
                                   onChange={onChange}></textarea>
                                 {errors.description?.type === 'required' &&
                                     <p className='text-bg-light'> {t('Event description is required')}</p>}
