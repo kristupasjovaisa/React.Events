@@ -1,10 +1,10 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import EventService from "../services/event.service";
+import eventService from "../services/event.service";
 
 export const addEvent = createAsyncThunk(
     "event/add",
     async ({name, location, category, price, startEventDateTime, endEventDateTime, description}) => {
-        return await EventService.addEvent(name, location, category, price, startEventDateTime, endEventDateTime, description);
+        return await eventService.addEvent(name, location, category, price, startEventDateTime, endEventDateTime, description);
     }
 );
 

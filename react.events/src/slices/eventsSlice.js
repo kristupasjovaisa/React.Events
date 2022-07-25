@@ -1,11 +1,10 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-const axios =require('axios')
+import eventsService from "../services/events.service";
 
 export const fetchEvents = createAsyncThunk(
     'events/fetchEvents',
     async () => {
-        const response = await axios.get('http://localhost:8080/api/events')
-        return response.data
+        return await eventsService.getEvents();
     }
 )
 
