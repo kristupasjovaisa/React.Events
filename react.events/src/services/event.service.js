@@ -1,4 +1,4 @@
-import authHeaderService from '/projects/React.Events/react.events/src/services/auth.header.service'
+import authHeader from '/projects/React.Events/react.events/src/services/auth.header'
 import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/";
@@ -13,7 +13,7 @@ const addEvent = (name, location, category, price, startEventDateTime, endEventD
             startEventDateTime,
             endEventDateTime,
             description
-        }, {headers: authHeaderService()})
+        }, {headers: authHeader()})
         .then((response) => response.data)
 };
 
