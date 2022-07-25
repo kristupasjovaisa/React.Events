@@ -61,5 +61,6 @@
  "Event price is required": "Renginio kaina yra privaloma",
   "Event start date/time is required": "Renginio pražia data/laikas yra privaloma",
   "Event end date/time is required": "Renginio pabaiga data/laikas yra privaloma",
-  "Event description is required": "Renginio aprašymas yra privalomas"
+  "Event description is required": "Renginio aprašymas yra privalomas",
+  "Details": "Detaliau"
 }

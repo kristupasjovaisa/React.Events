@@ -11,6 +11,7 @@ import Register from "./containers/Pages/RegisterPage/Register";
 import Users from "./containers/Pages/UsersPage/Users";
 import UserAccount from "./containers/Pages/UserAccount/UserAccount";
 import AddEventPage from "./containers/Pages/AddEventPage/AddEventPage";
+import Details from "./containers/Pages/DetailPage/Details";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <HeaderContainer/>
                     <Routes>
                         <Route path='/' element={<HomePage/>}/>
+                        <Route path='/events/:id' element={<Details/>}/>
                         <Route path='/create' element={<AddEventPage/>}/>
                         <Route path='/events' element={<EventsView/>}/>
                         <Route path='/about' element={<About/>}/>
