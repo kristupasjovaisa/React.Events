@@ -5,6 +5,7 @@ import {useTranslation} from "react-i18next";
 import {logout} from "../../slices/authSlice";
 import {useDispatch} from "react-redux";
 import {isAdmin} from "../../helper/roles";
+import {isLoggedin} from "../../helper/user";
 
 const HeaderContainer = () => {
 
@@ -48,8 +49,8 @@ const HeaderContainer = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav style={{maxHeight: '100px'}} navbarScroll>
-                        <Nav.Link to="/login" as={NavLink}><i className='fas fa-user'></i>{t('Login')}</Nav.Link>
-                        <NavDropdown title={t('Account')} className='px-3'>
+                        <Nav.Link to="/login" as={NavLink} hidden={isLoggedin()}><i className='fas fa-user p-1' hidden={isLoggedin()}></i>{t('Login')}</Nav.Link>
+                        <NavDropdown title={t('Account')} className='px-3' hidden={!isLoggedin()}>
                             <NavDropdown.Item className='text-bg-light' to="/account"
                                               as={NavLink}>{t('My Profile')}</NavDropdown.Item>
                             <NavDropdown.Item className='text-bg-light' onClick={onClick}> {t('Logout')} </NavDropdown.Item>
