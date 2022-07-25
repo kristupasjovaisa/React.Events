@@ -17,8 +17,8 @@ const addEvent = (name, location, category, price, startEventDateTime, endEventD
         .then((response) => response.data)
 };
 
-const eventService = {
+const addEventService = {
     addEvent
 };
 
-export default eventService;
+export default addEventService;

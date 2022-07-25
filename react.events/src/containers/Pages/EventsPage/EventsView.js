@@ -1,23 +1,25 @@
-import React, {useState} from "react";
-import {Button, Card, Form, Modal, ModalBody, ModalHeader} from "react-bootstrap";
+import React from "react";
+import {Card} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import EventList from "../../../components/EventList/EventList";
-import AddEvent from "../../../components/AddEvent/addEvent";
+import {useNavigate} from "react-router-dom";
 
 const EventsView = () => {
 
+    const navigate = useNavigate();
+
+    const routeChange = event => {
+        const path = '/create';
+        navigate(path);
+        // eslint-disable-next-line no-restricted-globals
+        location.reload()
+    }
 
     const {t} = useTranslation();
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     return (
         <>
             <div className='text-center mt-3'>
-                <Modal show={show} onHide={handleClose}>
-                    <AddEvent/>
-                </Modal>
-                <button className='button-30' role='button' onClick={handleShow}>
+                <button className='button-30' role='button' onClick={routeChange}>
                     <Card.Title>{t('Add new event')}</Card.Title>
                 </button>
             </div>

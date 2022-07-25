@@ -10,6 +10,7 @@ import Login from "./containers/Pages/LoginPage/Login";
 import Register from "./containers/Pages/RegisterPage/Register";
 import Users from "./containers/Pages/UsersPage/Users";
 import UserAccount from "./containers/Pages/UserAccount/UserAccount";
+import AddEventPage from "./containers/Pages/AddEventPage/AddEventPage";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <HeaderContainer/>
                     <Routes>
                         <Route path='/' element={<HomePage/>}/>
+                        <Route path='/create' element={<AddEventPage/>}/>
                         <Route path='/events' element={<EventsView/>}/>
                         <Route path='/about' element={<About/>}/>
                         <Route path='/login' element={<Login/>}/>

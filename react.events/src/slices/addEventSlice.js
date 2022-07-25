@@ -1,18 +1,18 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import eventService from "../services/event.service";
+import addEventService from "../services/add.event.service";
 
 export const addEvent = createAsyncThunk(
     "event/add",
     async ({name, location, category, price, startEventDateTime, endEventDateTime, description}) => {
-        return await eventService.addEvent(name, location, category, price, startEventDateTime, endEventDateTime, description);
+        return await addEventService.addEvent(name, location, category, price, startEventDateTime, endEventDateTime, description);
     }
 );
 
-const eventSlice = createSlice({
-    name: "event",
+const addEventSlice = createSlice({
+    name: "addEvent",
     initialState: {
         isLoading: false,
-        event: null,
+        isAdded: false,
         errorMessage: null
     },
     extraReducers: {
@@ -22,13 +22,14 @@ const eventSlice = createSlice({
         [addEvent.rejected]: (state, action) => {
             state.isLoading = false;
             state.errorMessage = action.payload;
+            state.isAdded = false;
         },
         [addEvent.fulfilled]: (state, action) => {
             state.isLoading = false;
-            state.event = action.payload;
+            state.isAdded = true;
             state.errorMessage = null;
         }
     },
 });
 
-export const eventReducer = eventSlice.reducer;
+export const eventReducer = addEventSlice.reducer;
