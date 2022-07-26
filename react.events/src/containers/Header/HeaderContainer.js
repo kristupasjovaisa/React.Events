@@ -4,7 +4,7 @@ import {NavLink, useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {logout} from "../../slices/authSlice";
 import {useDispatch} from "react-redux";
-import {isLoggedin} from "../../helper/user";
+import {isLoggedin, nickname} from "../../helper/user";
 
 const HeaderContainer = () => {
 
@@ -49,7 +49,7 @@ const HeaderContainer = () => {
                     </Nav>
                     <Nav style={{maxHeight: '100px'}} navbarScroll>
                         <Nav.Link to="/login" as={NavLink} hidden={isLoggedin()}><i className='fas fa-user p-1' hidden={isLoggedin()}></i>{t('Login')}</Nav.Link>
-                        <NavDropdown title={t('Account')} className='px-3' hidden={!isLoggedin()}>
+                        <NavDropdown title={t(nickname())} className='px-3' hidden={!isLoggedin()}>
                             {/*<NavDropdown.Item className='text-bg-light' to="/account"*/}
                             {/*                  as={NavLink}>{t('My Profile')}</NavDropdown.Item>*/}
                             <NavDropdown.Item className='text-bg-light' onClick={onClick}> {t('Logout')} </NavDropdown.Item>

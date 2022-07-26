@@ -3,7 +3,8 @@ import {Card} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import EventList from "../../../components/EventList/EventList";
 import {useNavigate} from "react-router-dom";
-import {isAdmin} from "../../../helper/roles";
+import {isAdmin, roles} from "../../../helper/roles";
+import {nickname} from "../../../helper/user";
 
 const EventsViewPage = () => {
 
@@ -15,6 +16,7 @@ const EventsViewPage = () => {
         // eslint-disable-next-line no-restricted-globals
         location.reload()
     }
+console.log(nickname())
 
     const {t} = useTranslation();
     return (
