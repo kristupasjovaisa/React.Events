@@ -3,11 +3,12 @@ import {Card} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import EventList from "../../../components/EventList/EventList";
 import {useNavigate} from "react-router-dom";
-import {isAdmin, roles} from "../../../helper/roles";
+import {isUserAdmin} from '/projects/React.Events/react.events/src/helper/user'
 import {nickname} from "../../../helper/user";
 
 const EventsViewPage = () => {
 
+    const isAdmin = isUserAdmin();
     const navigate = useNavigate();
 
     const routeChange = event => {
@@ -22,7 +23,7 @@ console.log(nickname())
     return (
         <>
             <div className='text-center mt-3'>
-                <button className='button-30' role='button' onClick={routeChange} hidden={!isAdmin()}>
+                <button className='button-30' role='button' onClick={routeChange} hidden={!isAdmin}>
                     <Card.Title>{t('Add new event')}</Card.Title>
                 </button>
             </div>

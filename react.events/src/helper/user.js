@@ -16,3 +16,20 @@ export const nickname = () => {
     }
     return null;
 }
+
+export const userRoles = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (user && user.jwtToken) {
+        return jwtDecode(user.jwtToken).roles;
+    }
+    return null;
+}
+
+export const isUserAdmin = () => {
+    const roles = userRoles();
+    if (roles) {
+        return roles.includes('ROLE_ADMIN')
+    }
+    return false;
+}

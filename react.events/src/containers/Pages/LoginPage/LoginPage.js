@@ -82,7 +82,7 @@ const LoginPage = () => {
                             <p className='text-bg-light'> {t('Password is required')}</p>}
                     </div>
                     <div>
-                        <button className='button-30-1 mt-4' role='button'> {t('LoginPage')} </button>
+                        <button className='button-30-1 mt-4' role='button'> {t('Login')} </button>
                     </div>
                     {/*<div className='line'></div>*/}
                     {/*<div className='btn-center mt-2'>*/}
