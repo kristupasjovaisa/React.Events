@@ -116,15 +116,14 @@ const Details = () => {
                                     <p className='text-bg-light'> {t('Event location is required')}</p>}
                             </Form.Group>
                             <Form.Group className='mb-3'>
-                                <Form.Select onChange={onChange} defaultValue={eventState.event.category} disabled={!isAdmin()}>
-                                    <option>{t('Select category')}</option>
-                                    <option>{t('Sports')}</option>
-                                    <option>{t('Concerts')}</option>
-                                    <option>{t('Festivals')}</option>
-                                    <option>{t('Performing Arts')}</option>
-                                    <option>{t('Conferences')}</option>
-                                    <option>{t('Community')}</option>
-                                </Form.Select>
+                                <Form.Control type='text'
+                                              placeholder={t('Event category')} {...register('category')}
+                                              defaultValue={eventState.event.category}
+                                              onChange={onChange}
+                                              disabled={!isAdmin()}
+                                />
+                                {errors.price?.type === 'required' &&
+                                    <p className='text-bg-light'> {t('Event price is required')}</p>}
                             </Form.Group>
                             <Form.Group className='mb-3'>
                                 <Form.Control type='text'

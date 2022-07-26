@@ -47,7 +47,7 @@ const Login = () => {
         dispatch(login({nickname, password}))
             .unwrap()
             .then(() => {
-                navigate('/')
+                navigate('/events')
             })
     };
 
@@ -84,10 +84,10 @@ const Login = () => {
                     <div>
                         <button className='button-30-1 mt-4' role='button'> {t('Login')} </button>
                     </div>
-                    <div className='line'></div>
-                    <div className='btn-center mt-2'>
-                        <button className='button-30-2 ' onClick={routeChange} role='button'> {t('Register')}</button>
-                    </div>
+                    {/*<div className='line'></div>*/}
+                    {/*<div className='btn-center mt-2'>*/}
+                    {/*    <button className='button-30-2 ' onClick={routeChange} role='button'> {t('Register')}</button>*/}
+                    {/*</div>*/}
                 </form>
             </div>
         )
