@@ -1,4 +1,4 @@
-import {Button, Form} from "react-bootstrap";
+import { Form} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import * as yup from "yup";
 import {useDispatch, useSelector} from "react-redux";
@@ -52,15 +52,12 @@ const AddEvent = () => {
 
     const onSubmit = () => {
         dispatch(addEvent({name, location, category, price, startEventDateTime, endEventDateTime, description}))
-            .unwrap()
-            .then(() => {
-                navigate('/events')
-            })
     };
 
     if (addEventState.isLoading) {
         return <span>Loading...</span>
     } else if (addEventState.isAdded) {
+        navigate('/events')
         return null;
     } else {
         return (

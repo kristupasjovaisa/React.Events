@@ -1,10 +1,19 @@
-import {Button, Card, ListGroup} from "react-bootstrap";
+import {Card, ListGroup} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {fetchEvents} from '/projects/React.Events/react.events/src/slices/eventsSlice'
+import {useNavigate} from "react-router-dom";
 
 const EventList = () => {
+
+    const navigate = useNavigate()
+    const routeChange = (button) => {
+        navigate(button.target.value);
+        // eslint-disable-next-line no-restricted-globals
+        location.reload()
+    }
+
     const {t} = useTranslation();
     const eventsState = useSelector((state) => state.eventsState)
     const dispatch = useDispatch()
@@ -47,8 +56,7 @@ const EventList = () => {
                                             </Card.Text>
                                         </Card.Body>
                                         <Card.Body>
-                                            <Button variant="outline-warning" size='sm'>{t('Update')}</Button>{' '}
-                                            <Button variant="outline-danger" size='sm'>{t('Delete')}</Button>{' '}
+                                            <button className='button-30-3' value={e.eventId} onClick={routeChange}>{t('Details')}</button>
                                         </Card.Body>
                                     </Card>
                                 )

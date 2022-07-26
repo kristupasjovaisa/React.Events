@@ -2,7 +2,7 @@ import {Button, Card, ListGroup} from "react-bootstrap";
 import {useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
 
-const Users = () => {
+const UsersPage = () => {
     const usersList = useSelector((state) => state.users.value)
     const {t}=useTranslation();
     return (
@@ -37,4 +37,4 @@ const Users = () => {
     );
 };
 
-export default Users;
+export default UsersPage;

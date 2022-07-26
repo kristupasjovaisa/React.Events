@@ -9,7 +9,7 @@ export const fetchEvents = createAsyncThunk(
 )
 
 const eventsSlice = createSlice({
-    name: 'eventsSlice',
+    name: 'events',
     initialState: {
         isLoading: false,
         events: [],

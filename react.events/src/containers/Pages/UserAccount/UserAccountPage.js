@@ -2,7 +2,7 @@ import { Card, ListGroup} from "react-bootstrap";
 import EventList from "../../../components/EventList/EventList";
 import {useTranslation} from "react-i18next";
 
-const UserAccount = () => {
+const UserAccountPage = () => {
     const {t}=useTranslation();
 
     return (
@@ -33,4 +33,4 @@ const UserAccount = () => {
     );
 
 }
-export default UserAccount;
+export default UserAccountPage;

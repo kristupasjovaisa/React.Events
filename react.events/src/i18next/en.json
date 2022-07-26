@@ -60,5 +60,6 @@
  "Event price is required": "Event price is required",
   "Event start date/time is required": "Event start date/time is required",
   "Event end date/time is required": "Event end date/time is required",
-  "Event description is required": "Event description is required"
+  "Event description is required": "Event description is required",
+  "Details": "Details"
 }

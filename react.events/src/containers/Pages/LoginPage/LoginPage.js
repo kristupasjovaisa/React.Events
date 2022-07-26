@@ -10,7 +10,7 @@ import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {login} from "../../../slices/authSlice";
 
-const Login = () => {
+const LoginPage = () => {
 
     const authState = useSelector((state) => state.authState)
 
@@ -47,7 +47,7 @@ const Login = () => {
         dispatch(login({nickname, password}))
             .unwrap()
             .then(() => {
-                navigate('/')
+                navigate('/events')
             })
     };
 
@@ -84,14 +84,14 @@ const Login = () => {
                     <div>
                         <button className='button-30-1 mt-4' role='button'> {t('Login')} </button>
                     </div>
-                    <div className='line'></div>
-                    <div className='btn-center mt-2'>
-                        <button className='button-30-2 ' onClick={routeChange} role='button'> {t('Register')}</button>
-                    </div>
+                    {/*<div className='line'></div>*/}
+                    {/*<div className='btn-center mt-2'>*/}
+                    {/*    <button className='button-30-2 ' onClick={routeChange} role='button'> {t('RegisterPage')}</button>*/}
+                    {/*</div>*/}
                 </form>
             </div>
         )
     }
 }
 
-export default Login;
+export default LoginPage;
