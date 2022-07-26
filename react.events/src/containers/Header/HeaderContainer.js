@@ -27,7 +27,7 @@ const HeaderContainer = () => {
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
-                <Navbar.Brand to="/events" as={NavLink}> <img src={logo} className='App-logo'/> </Navbar.Brand>
+                <Navbar.Brand to="/events" as={NavLink} hidden={!isLoggedin()}> <img src={logo} className='App-logo'/> </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
