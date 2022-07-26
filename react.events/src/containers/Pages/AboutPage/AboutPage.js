@@ -5,7 +5,7 @@ const AboutPage = () => {
     return (
         <>
             <div>
-                <h3 className='text about mt-4'>{t('AboutPage us')}</h3>
+                <h3 className='text about mt-4'>{t('About us')}</h3>
                 <p className='text mt-4'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias blanditiis consequuntur corporis
                     cum eveniet excepturi explicabo laudantium minima mollitia, necessitatibus nisi obcaecati
