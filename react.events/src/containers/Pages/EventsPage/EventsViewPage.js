@@ -5,7 +5,7 @@ import EventList from "../../../components/EventList/EventList";
 import {useNavigate} from "react-router-dom";
 import {isAdmin} from "../../../helper/roles";
 
-const EventsView = () => {
+const EventsViewPage = () => {
 
     const navigate = useNavigate();
 
@@ -29,4 +29,4 @@ const EventsView = () => {
     );
 };
 
-export default EventsView;
+export default EventsViewPage;

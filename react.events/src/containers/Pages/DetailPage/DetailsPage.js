@@ -10,7 +10,7 @@ import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import {isAdmin} from "../../../helper/roles";
 
 
-const Details = () => {
+const DetailsPage = () => {
 
     const params = useParams();
     const {t} = useTranslation();
@@ -183,4 +183,4 @@ const Details = () => {
     )
 }
 
-export default Details;
+export default DetailsPage;

@@ -4,14 +4,14 @@ import './App.css';
 import {BrowserRouter} from "react-router-dom";
 import {Routes, Route} from "react-router-dom";
 import HomePage from "./containers/Pages/HomePage/HomePage";
-import EventsView from "./containers/Pages/EventsPage/EventsView";
-import About from "./containers/Pages/AboutPage/About";
-import Login from "./containers/Pages/LoginPage/Login";
-import Register from "./containers/Pages/RegisterPage/Register";
-import Users from "./containers/Pages/UsersPage/Users";
-import UserAccount from "./containers/Pages/UserAccount/UserAccount";
+import EventsViewPage from "./containers/Pages/EventsPage/EventsViewPage";
+import AboutPage from "./containers/Pages/AboutPage/AboutPage";
+import LoginPage from "./containers/Pages/LoginPage/LoginPage";
+import RegisterPage from "./containers/Pages/RegisterPage/RegisterPage";
+import UsersPage from "./containers/Pages/UsersPage/UsersPage";
+import UserAccountPage from "./containers/Pages/UserAccount/UserAccountPage";
 import AddEventPage from "./containers/Pages/AddEventPage/AddEventPage";
-import Details from "./containers/Pages/DetailPage/Details";
+import DetailsPage from "./containers/Pages/DetailPage/DetailsPage";
 
 function App() {
     return (
@@ -20,14 +20,14 @@ function App() {
                     <HeaderContainer/>
                     <Routes>
                         <Route path='/' element={<HomePage/>}/>
-                        <Route path='/events/:id' element={<Details/>}/>
+                        <Route path='/events/:id' element={<DetailsPage/>}/>
                         <Route path='/create' element={<AddEventPage/>}/>
-                        <Route path='/events' element={<EventsView/>}/>
-                        <Route path='/about' element={<About/>}/>
-                        <Route path='/login' element={<Login/>}/>
-                        <Route path='/register' element={<Register/>}/>
-                        <Route path='/users' element={<Users/>}/>
-                        <Route path='/account' element={<UserAccount/>}/>
+                        <Route path='/events' element={<EventsViewPage/>}/>
+                        <Route path='/about' element={<AboutPage/>}/>
+                        <Route path='/login' element={<LoginPage/>}/>
+                        <Route path='/register' element={<RegisterPage/>}/>
+                        <Route path='/users' element={<UsersPage/>}/>
+                        <Route path='/account' element={<UserAccountPage/>}/>
                     </Routes>
                     <FooterContainer/>
                 </div>

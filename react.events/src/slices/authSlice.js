@@ -36,7 +36,7 @@ const authSlice = createSlice({
         errorMessage: null
     },
     extraReducers: {
-        // TODO: Implemented Register!!!
+        // TODO: Implemented RegisterPage!!!
         // [register.fulfilled]: (state, action) => {
         //     state.isLoading = false;
         // },

@@ -7,7 +7,7 @@ import * as yup from 'yup'
 import {useState} from "react";
 import {useTranslation} from "react-i18next";
 
-const Register = () => {
+const RegisterPage = () => {
     const {t}=useTranslation();
     const[type,setType] = useState('password');
     const[icon,setIcon] = useState(eyeOff);
@@ -86,5 +86,5 @@ const Register = () => {
     )
 }
 
-export default Register;
+export default RegisterPage;
 
